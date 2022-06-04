@@ -16,7 +16,7 @@ export function Sidebar() {
           src="https://github.com/rafaelcardeallodi.png"
         />
         <strong>Rafael Lodi</strong>
-        <span>Front-End Developer</span>
+        <span>Front-end Developer</span>
       </div>
 
       <footer>
