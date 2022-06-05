@@ -1,8 +1,25 @@
+import { format, formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+
 import { Avatar } from "../Avatar";
 import { Comment } from "../Comment";
+
 import styles from "./styles.module.scss";
 
 export function Post({ author, content, publishedAt }) {
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  );
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  });
+
   return (
     <article className={styles.container}>
       <header>
@@ -14,10 +31,29 @@ export function Post({ author, content, publishedAt }) {
           </div>
         </div>
 
-        <time dateTime="2022-06-04 18:00:00">Publicado há 1h</time>
+        <time
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
+        >
+          {publishedDateRelativeToNow}
+        </time>
       </header>
 
-      <div className={styles.content}></div>
+      <div className={styles.content}>
+        {content.map((item) => {
+          if (item.type === "paragraph") {
+            return <p key={item.content}>{item.content}</p>;
+          }
+
+          if (item.type === "link") {
+            return (
+              <p key={item.content}>
+                <a href="#">{item.content}</a>
+              </p>
+            );
+          }
+        })}
+      </div>
 
       <form className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
