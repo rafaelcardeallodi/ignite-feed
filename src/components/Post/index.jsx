@@ -8,8 +8,8 @@ import { Comment } from "../Comment";
 import styles from "./styles.module.scss";
 
 export function Post({ author, content, publishedAt }) {
-  const [newCommentText, setNewCommentText] = useState("");
   const [comments, setComments] = useState(["Post muito bacana, hein?!"]);
+  const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormatted = format(
     publishedAt,
@@ -31,6 +31,11 @@ export function Post({ author, content, publishedAt }) {
     setNewCommentText("");
   }
 
+  function handleNewCommentChange(event) {
+    event.target.setCustomValidity("");
+    setNewCommentText(event.target.value);
+  }
+
   function deleteComment(commentToDelete) {
     const commentsWithoutDeletedOne = comments.filter(
       (comment) => comment !== commentToDelete
@@ -38,6 +43,12 @@ export function Post({ author, content, publishedAt }) {
 
     setComments(commentsWithoutDeletedOne);
   }
+
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity("Esse campo é obrigatório!");
+  }
+
+  const isNewCommentInputEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.container}>
@@ -79,10 +90,14 @@ export function Post({ author, content, publishedAt }) {
         <textarea
           placeholder="Escreva um comentário..."
           value={newCommentText}
-          onChange={(event) => setNewCommentText(event.target.value)}
+          onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentInputEmpty}>
+            Publicar
+          </button>
         </footer>
       </form>
 
