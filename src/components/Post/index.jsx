@@ -8,8 +8,8 @@ import { Comment } from "../Comment";
 import styles from "./styles.module.scss";
 
 export function Post({ author, content, publishedAt }) {
-  const [comment, setComment] = useState("");
-  const [comments, setComments] = useState([1, 2]);
+  const [newCommentText, setNewCommentText] = useState("");
+  const [comments, setComments] = useState(["Post muito bacana, hein?!"]);
 
   const publishedDateFormatted = format(
     publishedAt,
@@ -27,7 +27,8 @@ export function Post({ author, content, publishedAt }) {
   function handleCreateNewComment() {
     event.preventDefault();
 
-    setComments([...comments, comment]);
+    setComments([...comments, newCommentText]);
+    setNewCommentText("");
   }
 
   return (
@@ -69,7 +70,8 @@ export function Post({ author, content, publishedAt }) {
         <strong>Deixe seu feedback</strong>
         <textarea
           placeholder="Escreva um comentário..."
-          onChange={(event) => setComment(event.target.value)}
+          value={newCommentText}
+          onChange={(event) => setNewCommentText(event.target.value)}
         />
         <footer>
           <button type="submit">Publicar</button>
@@ -78,7 +80,7 @@ export function Post({ author, content, publishedAt }) {
 
       <div className={styles.commentList}>
         {comments.map((comment) => (
-          <Comment />
+          <Comment key={comment} content={comment} />
         ))}
       </div>
     </article>
