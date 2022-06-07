@@ -5,6 +5,7 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-adicionais">Adicionais</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-licença">Licença</a>
@@ -35,19 +36,30 @@ Este é um projeto desenvolvido durante a [Trilha Ignite - ReactJS](https://www.
 
 ## 🚀 Funcionalidades adicionais
 
-<i>Em progresso!</i>
+    - Adicionado uma SideBar;
+    - Em progresso....
 
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](<https://www.figma.com/file/AgWmYmAyzKICnEgDw13NFd/Ignite-Feed-(Community)>). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-## ⚡ Como executar
+## 🎲 Como executar
 
-- Clone o repositório e acesse a pasta;
-- Instale as dependências com `yarn`;
-- Inicie o servidor com `yarn dev`.
+```bash
+# Clone este repositório
+$ git clone https://github.com/rafaelcardeallodi/ignite-feed.git
 
-A aplicação pode ser acessada em [`localhost:3000`](http://localhost:3000).
+# Acesse a pasta do projeto no terminal/cmd
+$ cd ignite-feed
+
+# Instale as dependências
+$ yarn
+
+# Execute a Aplicação em Desenvolvimento
+$ yarn dev
+
+# A aplicação pode ser acessada em localhost:3000
+```
 
 ## 📄 Licença
 
