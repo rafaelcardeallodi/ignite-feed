@@ -36,7 +36,7 @@ Este é um projeto desenvolvido durante a [Trilha Ignite - ReactJS](https://www.
 
 ## 🚀 Funcionalidades adicionais
 
-    - Adicionado SASS;
+    - Adicionado SASS para auxiliar no CSS;
     - Em progresso....
 
 ## 🔖 Layout
