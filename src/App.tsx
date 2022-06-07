@@ -6,7 +6,21 @@ import "./styles/global.scss";
 
 import styles from "./App.module.scss";
 
-const POSTS = [
+interface Post {
+  id: number;
+  author: {
+    name: string;
+    avatarUrl: string;
+    role: string;
+  };
+  content: {
+    type: "paragraph" | "link";
+    content: string;
+  }[];
+  publishedAt: Date;
+}
+
+const POSTS: Post[] = [
   {
     id: 1,
     author: {
